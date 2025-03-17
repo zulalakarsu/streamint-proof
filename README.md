@@ -19,7 +19,8 @@ This template provides a basic structure for building proof tasks that:
   "ownership": 1.0, // A score between 0 and 1 to verify the ownership of the file
   "quality": 0.6024096385542169, // A score between 0 and 1 to show the quality of the file
   "uniqueness": 0, // A score between 0 and 1 to show unique the file is, compared to others in the DLP
-  "attributes": { // Custom attributes that can be added to the proof to provide extra context about the encrypted file
+  "attributes": {
+    // Custom attributes that can be added to the proof to provide extra context about the encrypted file
     "total_score": 0.5,
     "score_threshold": 0.83,
     "email_verified": true
@@ -55,7 +56,7 @@ The main proof logic is implemented in `my_proof/proof.py`. To customize it, upd
 
 The proof can be configured using environment variables. When running in an enclave, the environment variables must be defined in the `my-proof.manifest.template` file as well. The following environment variables are used for this demo proof:
 
-- `USER_EMAIL`: The email address of the data contributor, to verify data ownership
+- `GOOGLE_TOKEN`: The email address of the data contributor, to verify data ownership
 
 If you want to use a language other than Python, you can modify the Dockerfile to install the necessary dependencies and build the proof task in the desired language.
 
@@ -70,7 +71,7 @@ docker run \
 --volume $(pwd)/demo/sealed:/sealed \
 --volume $(pwd)/demo/input:/input \
 --volume $(pwd)/demo/output:/output \
---env USER_EMAIL=user123@gmail.com \
+--env GOOGLE_TOKEN=xxx \
 my-proof
 ```
 
