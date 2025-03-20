@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     )
     
     RPC_URL: str = Field(
-        default="https://rpc.vana.org",
+        default="https://rpc.moksha.vana.org",
         description="Ethereum RPC endpoint URL",
         pattern="^https?://.*$"
     )
